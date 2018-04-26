@@ -1,62 +1,40 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  GOV.UK prototype kit
+The childcare service
 {% endblock %}
 
 {% block content %}
 
 <main id="content" role="main">
-  <div class="grid-row">
-    <div class="column-two-thirds">
 
-      <h1 class="heading-xlarge">
-        The GOV.UK prototype kit
-        <span class="heading-secondary">{{releaseVersion}}</span>
-      </h1>{{releaseVersion | log }}
-      <p>
-        This kit lets you rapidly create HTML prototypes of GOV.UK services.
-      </p>
+    {% include "includes/phase_banner_beta.html" %}
 
-      <p>
-        It contains all you need to prototype anything from simple static pages to complex, data-driven transactions.
-      </p>
+    <div class="grid-row">
+        <div class="column-two-thirds">
 
-      <h2 class="heading-medium">About this page</h2>
+            <h1 class="heading-xlarge">{{ serviceName }} prototype</h1>
+            <p>Marriage Allowance lets you transfer £1,190 of your Personal Allowance to your husband, wife or civil partner - if they earn more than you.</p>
 
-      <p>We recommend you add links to your prototype to this page, rather than delete it.
-        You'll find this page in the kit at '/app/views/index.html'.</p>
-      <p>You can change the service name by editing the file '/app/config.js'.</p>
 
-			<h2 class="heading-medium">Examples and documentation</h2>
 
-			<ul class="list list-bullet">
-				<li><a href="/docs/tutorials-and-examples">Example pages and documentation</a></li>
-				<li><a href="https://github.com/alphagov/govuk_prototype_kit">GitHub</a></li>
-			</ul>
+            <p><a href="eligibility-check" class="button">Get started</a></p>
 
-      <h2 class="heading-medium">Other resources</h2>
+             <h2 class="heading-medium">Page by page breakdown</h2>
+            <p>Links to every page.</p>
+            <p><a href="listings" class="button">Continue</a></p>
 
-			<ul class="list list-bullet">
-				<li>
-					<a href="https://govuk-elements.herokuapp.com/snippets/">
-						Guide to GOV.UK Elements
-					</a>
-				</li>
-				<li>
-					<a href="https://www.gov.uk/service-manual">
-						Service design manual
-					</a>
-				</li>
-				<li>
-					<a href="https://www.gov.uk/design-principles">
-						Government Digital Service Design Principles
-					</a>
-				</li>
-			</ul>
 
+
+
+            <h2 class="heading-medium">Documentation</h2>
+            <ul class="list list-bullet">
+                <!-- <li><a href="/docs/tutorials-and-examples">Example pages and documentation</a></li> -->
+                <li><a href="https://github.com/hmrc/childcare-service-prototype">GitHub reposistory for this service</a></li>
+            </ul>
+        </div>
     </div>
-  </div>
+
 </main>
 
 {% endblock %}

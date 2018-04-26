@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "What’s in the data object?" %}
+{% set pageSection = "" %}
+
+{% block page_title %}
+    {{ macroPageTitle.pageTitle(pageHeading, pageSection) }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageHeading) }}
+
+
+            <p>Current data been stored within the prototype.</p>
+
+            <form method="post" class="form">
+
+                {% for key, item in data %}
+                      <div><span class="heading-small">{{ key }}:</span> {{ item }}</div>
+                {% endfor %}
+
+            </form>
+
+        </div>
+    </div>
+</main>
+{% endblock %}

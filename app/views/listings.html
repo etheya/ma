@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+The childcare service
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+    {% include "includes/phase_banner_beta.html" %}
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+                <h1 class="heading-xlarge">
+                    <span class="heading-secondary">Page by page breakdown</span>
+                    {{ serviceName }} prototype
+                </h1>
+
+
+
+                <ul class="list-bullet">
+                    <li><a href="eligibility-check">Are you married or in a civil partnership?</a></li>
+                    <li><a href="date-of-birth-check">Were you and your partner born after 5 April 1935?</a></li>
+                    <li><a href="residency">Do you live in Scotland?</a></li>
+                    <li><a href="lower-earner">Is your income less than £11,850 a year?</a></li>
+                    <li><a href="partners-income">Is your partners income less than £46,350 a year?</a></li>
+                    <li><a href="partners-income-scotland">Is your partners income less than £43,430 a year? (Scotland)</a></li>
+                    <li><a href="partners-lower-income">Is your partners income more than £11,851 a year?</a></li>
+                    <li><a href="confirm">Do you want to apply now?</a></li>
+                    <li><a href="not-eligible">You are not eligible for Marriage Allowance</a></li>
+
+
+                </ul>
+                <hr>
+
+
+
+                <h2 class="heading-medium">Data Session</h2>
+                <ul class="list-bullet">
+                    <li><a href="data">Current data been stored within the service</a></li>
+                </ul>
+
+        </div>
+    </div>
+</main>
+{% endblock %}
