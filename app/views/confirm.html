@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% set pageHeading = "Do you want to apply now?" %}
+{% set pageSection = "Check your eligibility" %}
+
+{% block page_title %}
+    {{ macroPageTitle.pageTitle(pageHeading, pageSection) }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    {% include "includes/phase_banner_beta.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+            {% include "includes/back-new.html" %}
+            {{ macroPageHeader.pageHeader(pageHeading) }}
+
+            <p>We are going to ask you some security questions based on the information HMRC hold on you.</p>
+            <p>This is to help protect your data.</p>
+
+            <form method="post" class="form">
+                <fieldset class="inline">
+                    <legend class="visuallyhidden">{{ pageHeading }}</legend>
+
+                    <div class="form-group">
+                        <div class="multiple-choice">
+                            <input id="yes" type="radio" name="ma--confirm-and-apply" value="Yes, redirect(residency)" {{ checked("ma--confirm-and-apply", "Yes") }} />
+                            <label for="yes">Yes</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="no" type="radio" name="ma--confirm-and-apply" value="No, redirect()" {{ checked("ma--confirm-and-apply", "No") }} />
+                            <label for="no">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                {{ macroButton.button() }}
+            </form>
+
+
+        </div>
+    </div>
+</main>
+{% endblock %}
