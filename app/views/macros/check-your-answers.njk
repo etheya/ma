@@ -1,0 +1,48 @@
+{#  There are two ways to use this:
+
+    Use as a regular macro for a one-liner answer (e.g. "No")
+
+    {{ macroCheckYourAnswers.checkYourAnswers(
+        cyaQuestion = "What’s your business structure?",
+        cyaAnswer = data['business-structure'],
+        cyaSectionEdit = "../business-structure"
+    ) }}
+
+    OR, use `call` to get this onto the page:
+
+    {% call macroCheckYourAnswers.checkYourAnswers(
+        cyaQuestion = "What do you need to register?",
+        cyaSectionEdit = "activities"
+    ) %}
+        <ul class="list list--comma">
+        {% for activity in data['bm--activities'] %}
+            <li>{{ activity }}</li>
+        {% else %}
+            <li>No activities selected</li>
+        {% endfor %}
+        </ul>
+    {% endcall %}
+
+#}
+
+{% macro checkYourAnswers(
+    cyaQuestion = "",
+    cyaAnswer = "",
+    cyaSectionEdit = "",
+    edit = true
+) %}
+<section class="check-your-answers">
+    <h2 class="bold-small">{{ cyaQuestion }}</h2>
+    <span class="visuallyhidden">Answer: </span>
+{% if cyaAnswer %}
+    <p>{{ cyaAnswer }}</p>
+{% else %}
+    {{ caller() }}
+{% endif %}
+{% if edit %}
+    <footer class="group">
+        <p><a href="{{ cyaSectionEdit }}" class="edit">Edit<span class="visuallyhidden"> your answer for &#8220;{{ cyaQuestion }}&#8221;</span></a></p>
+    </footer>
+{% endif %}
+</section>
+{% endmacro %}

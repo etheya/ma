@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% set pageHeading = "Were you and your partner born before after 5 April 1935" %}
+{% set pageSection = "Check your eligibility" %}
+
+{% block page_title %}
+    {{ macroPageTitle.pageTitle(pageHeading, pageSection) }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    {% include "includes/phase_banner_beta.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+            {% include "includes/back-new.html" %}
+            {{ macroPageHeader.pageHeader(pageHeading) }}
+
+            <p>This is not paid help from an unregistered friend or relative. It must be with an approved provider such as a registered childminder, playscheme, nursery, out of school club or a home careworker working for a registered agency.</p>
+
+            <form method="post" class="form">
+                <fieldset class="">
+                    <legend class="visuallyhidden">{{ pageHeading }}</legend>
+
+                    <div class="form-group">
+                        <div class="multiple-choice">
+                            <input id="yes" type="radio" name="your-children--childcare-costs" value="Ye, redirect(what-youre-applying-for)" {{ checked("your-children--childcare-costs", "Yes") }} />
+                            <label for="yes">Yes</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="no" type="radio" name="your-children--childcare-costs" value="No, redirect(expecting-childcare-costs)" {{ checked("your-children--childcare-costs", "No") }} />
+                            <label for="no">No</label>
+                        </div>
+                        <!-- <div class="multiple-choice">
+                            <input id="maybe" type="radio" name="your-children--childcare-costs" value="Not yet but maybe in the future" {{ checked("your-children--childcare-costs", "Not yet but looking at childcare options") }} />
+                            <label for="maybe">Not yet but looking at childcare options</label>
+                        </div> -->
+
+                    </div>
+                </fieldset>
+
+                {{ macroButton.button() }}
+            </form>
+
+
+        </div>
+    </div>
+</main>
+{% endblock %}

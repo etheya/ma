@@ -1,0 +1,40 @@
+{#
+    hint = false        // tie an external hint to the first option
+    hintInline = "",    // tie an inline hint to the input
+    id = "",            // `data-target` value
+    label = "",         // item label
+    name = "",          // `name` value
+    value = ""          // item identifier
+
+    {{ macroInput.input(
+        label = "SOME_TEXT",
+        name = "section--sub-section",
+        value = "Yes",
+        hint = true
+    ) }}
+#}
+
+{% macro input (
+    classes = "",
+    data = {},
+    hidden = false,
+    hint = false,
+    hintInline = "",
+    label = "",
+    labelHidden = false,
+    max = "",
+    maxlength = "",
+    min = "",
+    name = "",
+    pattern = "",
+    target = "",
+    type = "text",
+    override="",
+    value = ""
+) %}
+    <div class="form-group{% if hidden %} panel panel-border-narrow js-hidden{% endif %}"{% if target %} id="{{ target }}"{% endif %}>
+        <label class="form-label{% if labelHidden %} visually-hidden{% endif %}" for="{{ name }}-{{ value }}">{{ label }}</label>
+        {% if hintInline %}<span class="form-hint" id="{{ name }}-hint">{{ hintInline }}</span>{% endif %}
+        <input class="form-control{% if classes %} {{ classes }}{% endif %}" type="{{ type }}"{% if min %} min="{{ min }}"{% endif %}{% if max %} max="{{ max }}"{% endif %}{% if maxlength %} maxlength="{{ maxlength }}"{% endif %}{% if pattern %} pattern="{{ pattern }}"{% endif %} name="{{ name }}-{{ value }}" id="{{ name }}-{{ value }}" value="{%if override %}{{override}}{% else %}{{ data[name + '-' + value] }}{% endif %}"{% if hint %} aria-describedby="{{ name }}-hint"{% endif %} />
+    </div>
+{% endmacro %}

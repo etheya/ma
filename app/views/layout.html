@@ -1,5 +1,19 @@
 {% extends "govuk_template.html" %}
 
+{% set serviceName = "The childcare service" %}
+
+{% import "macros/page-title.njk" as macroPageTitle %}
+{% import "macros/page-header.njk" as macroPageHeader %}
+{% import "macros/anchor.njk" as macroAnchor %}
+{% import "macros/button.njk" as macroButton %}
+{% import "macros/input-field.njk" as macroInput %}
+{% import "macros/input-checkbox.njk" as macroCheckbox %}
+{% import "macros/input-radio.njk" as macroRadio %}
+{% import "macros/date.njk" as macroDate %}
+{% import "macros/check-your-answers.njk" as macroCheckYourAnswers %}
+{% import "macros/cs/defaults.njk" as defaults %}
+{% import "macros/check-child.njk" as macroCheckChildAge %}
+
 {% block head %}
   {% include "includes/head.html" %}
 {% endblock %}

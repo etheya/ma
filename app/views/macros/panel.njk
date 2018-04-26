@@ -1,0 +1,35 @@
+{#  There are two ways to use this:
+
+    Use as a regular macro for a one-liner panel
+
+        {{ macroPanel.panel(
+            content = "One single paragraph of text, with no markup at all."
+        ) }}
+
+    OR, use `call` to get this onto the page:
+
+        {% call macroPanel.panel(
+            hidden = true,
+            id = "some_id",
+            narrow = true
+        ) %}
+            <p>This can be whatever you need. <a href="#">Markup allowed here</a></p>
+        {% endcall %}
+
+#}
+{% macro panel(
+    classes = "",
+    content = "",
+    hidden = false,
+    id = "",
+    narrow = false,
+    wide = true
+) %}
+<div class="panel{% if classes %} {{ classes }}{% endif %} {{ "panel-border-narrow" if narrow else "panel-border-wide" }}{% if hidden %} js-hidden{% endif %}"{% if id %} id="{{ id }}"{% endif %}>
+{% if content %}
+    <p>{{ content }}</p>
+{% else %}
+    {{ caller() }}
+{% endif %}
+</div>
+{% endmacro %}

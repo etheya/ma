@@ -1,0 +1,123 @@
+{#
+	Same content per child
+
+	{% call macroCheckChildAge.checkChildAge(
+	    c1 = childAge, c2 = child2Age, c3 = child3Age, c4 = child4Age, c5 = child5Age,
+	    country = data['about-you--country']
+	) %}
+	    <p>Text</p>
+	{% endcall %}
+#}
+
+{#
+	Custom content per child
+
+	{% call macroCheckChildAge.checkChildAge(
+		c1 = childAge, c2 = child2Age, c3 = child3Age, c4 = child4Age, c5 = child5Age,
+	    country = data['about-you--country'],
+	    c1Name = childName,
+	    c2Name = childName2,
+	    c3Name = childName3,
+	    c1Code = "50020115695",
+	    c2Code = "50020138290",
+	    c3Code = "50020273017"
+	) %}
+		<p>Text</p>
+	{% endcall %}
+#}
+
+{#
+	Use ELSE after IF statement
+
+	{% call macroCheckChildAge.checkChildAge(
+	    c1 = childAge, c2 = child2Age, c3 = child3Age, c4 = child4Age, c5 = child5Age,
+	    country = data['about-you--country']
+	) %}
+	    <p>Child IS eligible</p>
+	{% endcall %}
+	{% call macroCheckChildAge.checkChildAge(
+	    c1 = childAge, c2 = child2Age, c3 = child3Age, c4 = child4Age, c5 = child5Age,
+	    country = data['about-you--country'],
+	    checkFalse = true
+	) %}
+	    <p>Child NOT eligible</p>
+	{% endcall %}
+#}
+
+{% macro checkChildAge(
+	c1 = "",
+	c2 = "",
+	c3 = "",
+	c4 = "",
+	c5 = "",
+	country = "",
+	c1Name = "",
+	c2Name = "",
+	c3Name = "",
+	c4Name = "",
+	c5Name = "",
+	c1Code = "",
+	c2Code = "",
+	c3Code = "",
+	c4Code = "",
+	c5Code = "",
+	checkFalse = false
+) %}
+
+{% if checkFalse %}
+	{# IF child NOT 3 or 4 years old #}
+	{% if ((( c1 | getAgeMonths) >= '32') and (( c1 | getAgeMonths) < '60')) and (country == "England")  %}
+	{% elif ((( c2 | getAgeMonths) >= '32') and (( c2 | getAgeMonths) < '60')) and (country == "England")  %}
+	{% elif ((( c3 | getAgeMonths) >= '32') and (( c3 | getAgeMonths) < '60')) and (country == "England")  %}
+	{% elif ((( c4 | getAgeMonths) >= '32') and (( c4 | getAgeMonths) < '60')) and (country == "England")  %}
+	{% elif ((( c5 | getAgeMonths) >= '32') and (( c5 | getAgeMonths) < '60')) and (country == "England")  %}
+	{% else %}
+		{{ caller() }}
+	{% endif %}
+{% else %}
+	{# IF child IS 3 or 4 years old #}
+	{% if ((( c1 | getAgeMonths) >= '32') and (( c1 | getAgeMonths) < '60')) and (country == "England")  %}
+		{{ caller() }}
+	{% elif ((( c2 | getAgeMonths) >= '32') and (( c2 | getAgeMonths) < '60')) and (country == "England")  %}
+		{{ caller() }}
+	{% elif ((( c3 | getAgeMonths) >= '32') and (( c3 | getAgeMonths) < '60')) and (country == "England")  %}
+		{{ caller() }}
+	{% elif ((( c4 | getAgeMonths) >= '32') and (( c4 | getAgeMonths) < '60')) and (country == "England")  %}
+		{{ caller() }}
+	{% elif ((( c5 | getAgeMonths) >= '32') and (( c5 | getAgeMonths) < '60')) and (country == "England")  %}
+		{{ caller() }}
+	{% endif %}
+{% endif %}
+
+{% if ((( c1 | getAgeMonths) >= '32') and (( c1 | getAgeMonths) < '60')) and (country == "England")  %}
+	{% if c1Code %}
+		<p>{{ c1Name }} &mdash; <span class="bold-small">{{ c1Code }}</span></p>
+	{% endif %}
+{% endif %}
+
+{% if ((( c2 | getAgeMonths) >= '32') and (( c2 | getAgeMonths) < '60')) and (country == "England")  %}
+	{% if c2Code %}
+		<p>{{ c2Name }} &mdash; <span class="bold-small">{{ c2Code }}</span></p>
+	{% endif %}
+{% endif %}
+
+{% if ((( c3 | getAgeMonths) >= '32') and (( c3 | getAgeMonths) < '60')) and (country == "England")  %}
+	{% if c3Code %}
+		<p>{{ c3Name }} &mdash; <span class="bold-small">{{ c3Code }}</span></p>
+	{% endif %}
+{% endif %}
+
+{% if ((( c4 | getAgeMonths) >= '32') and (( c4 | getAgeMonths) < '60')) and (country == "England")  %}
+	{% if c4Code %}
+		<p>{{ c4Name }} &mdash; <span class="bold-small">{{ c4Code }}</span></p>
+	{% endif %}
+{% endif %}
+
+
+{% if ((( c5 | getAgeMonths) >= '32') and (( c5 | getAgeMonths) < '60')) and (country == "England")  %}
+	{% if c5Code %}
+		<p>{{ c5Name }} &mdash; <span class="bold-small">{{ c5Code }}</span></p>
+	{% endif %}
+{% endif %}
+
+{% endmacro %}

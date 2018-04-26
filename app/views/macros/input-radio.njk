@@ -1,0 +1,40 @@
+{#
+    target = "",    // `data-target` value
+    name = "",      // `name` value
+    value = "",      // item identifier
+    value = "",     // item label
+    hint = false    // tie a hint to the first option
+
+    {{ macroRadio.radio(
+        data = data,
+        id = "yes",
+        label = "Yes",
+        name = "rp--passport",
+        redirect = "date-of-birth",
+        target = "resident"
+    ) }}
+#}
+
+{% macro radio (
+    data = {},
+    hint = false,
+    id = "",
+    label = "",
+    name = "",
+    next = "",
+    redirect = "",
+    selected = false,
+    target = ""
+) %}
+{% if next %}
+    {% set dataValue = next %}
+{% elif redirect %}
+    {% set dataValue = label + ', redirect(' + redirect + ')' %}
+{% else %}
+    {% set dataValue = label %}
+{% endif %}
+    <div class="multiple-choice"{% if target %} data-target="{{ target }}"{% endif %}>
+        <input type="radio" name="{{ "next-page" if next else name }}" id="{{ name }}-{{ id }}" value="{{ dataValue }}"{% if hint %} aria-describedby="{{ name }}-hint"{% endif %}{% if selected %} checked="checked"{% elif label == data[name] %} checked="checked"{% endif %} />
+        <label for="{{ name }}-{{ id }}">{{ label }}</label>
+    </div>
+{% endmacro %}
