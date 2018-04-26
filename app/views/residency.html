@@ -23,17 +23,17 @@
 
                     <div class="form-group">
                         <div class="multiple-choice">
-                            <input id="yes" type="radio" name="ma--scotland-resident" value="Yes, redirect(partners-income-scotland)" {{ checked("ma--scotland-resident", "Yes") }} />
+                            <input id="yes" type="radio" name="ma--scotland-resident" value="Yes" {{ checked("ma--scotland-resident", "Yes") }} />
                             <label for="yes">Yes</label>
                         </div>
                         <div class="multiple-choice">
-                            <input id="no" type="radio" name="ma--scotland-resident" value="No, redirect(partners-income)" {{ checked("ma--scotland-resident", "No") }} />
+                            <input id="no" type="radio" name="ma--scotland-resident" value="No" {{ checked("ma--scotland-resident", "No") }} />
                             <label for="no">No</label>
                         </div>
                     </div>
                 </fieldset>
 
-                {{ macroButton.button() }}
+                {{ macroButton.button(next = "lower-earner") }}
             </form>
 
 

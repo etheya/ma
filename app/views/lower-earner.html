@@ -25,11 +25,16 @@
 
                     <div class="form-group">
                         <div class="multiple-choice">
-                            <input id="yes" type="radio" name="ma--born-after-april" value="Yes, redirect(residency)" {{ checked("ma--born-after-april", "Yes") }} />
+
+                            {% if data['ma--scotland-resident'] == "Yes" %}
+                                <input id="yes" type="radio" name="ma--lower-earner" value="Yes, redirect(partners-income-scotland)" {{ checked("ma--lower-earner", "Yes") }} />
+                            {% else %}
+                                <input id="yes" type="radio" name="ma--lower-earner" value="Yes, redirect(partners-income)" {{ checked("ma--lower-earner", "Yes") }} />
+                            {% endif %}
                             <label for="yes">Yes</label>
                         </div>
                         <div class="multiple-choice">
-                            <input id="no" type="radio" name="ma--born-after-april" value="No, redirect()" {{ checked("ma--born-after-april", "No") }} />
+                            <input id="no" type="radio" name="ma--lower-earner" value="No, redirect(not-eligible)" {{ checked("ma--lower-earner", "No") }} />
                             <label for="no">No</label>
                         </div>
                     </div>
