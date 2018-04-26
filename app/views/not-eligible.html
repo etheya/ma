@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% set pageHeading = "You are not eligible for Marriage Allowance." %}
+{% set pageSection = "Check your eligibility" %}
+
+{% block page_title %}
+    {{ macroPageTitle.pageTitle(pageHeading, pageSection) }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    {% include "includes/phase_banner_beta.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+            {% include "includes/back-new.html" %}
+            {{ macroPageHeader.pageHeader(pageHeading) }}
+
+            <p>Your partner’s annual income must be between £11,851 and £46,350.</p>
+
+
+
+        </div>
+    </div>
+</main>
+{% endblock %}

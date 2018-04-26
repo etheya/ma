@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% set pageHeading = "?" %}
+{% set pageHeading = "Were you and your partner born after 5 April 1935?" %}
 {% set pageSection = "Check your eligibility" %}
 
 {% block page_title %}
@@ -27,7 +27,7 @@
                             <label for="yes">Yes</label>
                         </div>
                         <div class="multiple-choice">
-                            <input id="no" type="radio" name="ma--resident-scotland" value="No, redirect()" {{ checked("ma--resident-scotland", "No") }} />
+                            <input id="no" type="radio" name="ma--resident-scotland" value="No, redirect(not-eligible)" {{ checked("ma--resident-scotland", "No") }} />
                             <label for="no">No</label>
                         </div>
                     </div>
