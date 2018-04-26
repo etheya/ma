@@ -1,0 +1,7 @@
+{% macro anchor (
+    href = "",
+    section = "",
+    value = "Continue"
+) %}
+    <a href="{{ href }}" class="button" role="button">{{ value }}{% if section %}<span class="visuallyhidden"> {{ section }}</span>{% endif %}</a>
+{% endmacro %}

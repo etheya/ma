@@ -1,0 +1,3 @@
+{% set headings = ["", "x-large", "large", "medium", "small"]%}
+
+<h{{ level }} class="heading{% if override %}-{{override}}{% else %}-{{headings[level]}}{% endif %}">{{ heading }}</h{{ level }}>
