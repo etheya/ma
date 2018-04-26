@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% set pageHeading = "?" %}
+{% set pageHeading = "Do you live in Scotland?" %}
 {% set pageSection = "Check your eligibility" %}
 
 {% block page_title %}
@@ -23,11 +23,11 @@
 
                     <div class="form-group">
                         <div class="multiple-choice">
-                            <input id="yes" type="radio" name="ma--resident-scotland" value="Yes, redirect(residency)" {{ checked("ma--resident-scotland", "Yes") }} />
+                            <input id="yes" type="radio" name="ma--born-after-april" value="Yes, redirect(residency)" {{ checked("ma--born-after-april", "Yes") }} />
                             <label for="yes">Yes</label>
                         </div>
                         <div class="multiple-choice">
-                            <input id="no" type="radio" name="ma--resident-scotland" value="No, redirect()" {{ checked("ma--resident-scotland", "No") }} />
+                            <input id="no" type="radio" name="ma--born-after-april" value="No, redirect()" {{ checked("ma--born-after-april", "No") }} />
                             <label for="no">No</label>
                         </div>
                     </div>
