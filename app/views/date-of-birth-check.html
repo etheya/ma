@@ -17,26 +17,19 @@
             {% include "includes/back-new.html" %}
             {{ macroPageHeader.pageHeader(pageHeading) }}
 
-            <p>This is not paid help from an unregistered friend or relative. It must be with an approved provider such as a registered childminder, playscheme, nursery, out of school club or a home careworker working for a registered agency.</p>
-
             <form method="post" class="form">
-                <fieldset class="">
+                <fieldset class="inline">
                     <legend class="visuallyhidden">{{ pageHeading }}</legend>
 
                     <div class="form-group">
                         <div class="multiple-choice">
-                            <input id="yes" type="radio" name="your-children--childcare-costs" value="Ye, redirect(what-youre-applying-for)" {{ checked("your-children--childcare-costs", "Yes") }} />
+                            <input id="yes" type="radio" name="ma--born-after-april" value="Yes, redirect(residency)" {{ checked("ma--born-after-april", "Yes") }} />
                             <label for="yes">Yes</label>
                         </div>
                         <div class="multiple-choice">
-                            <input id="no" type="radio" name="your-children--childcare-costs" value="No, redirect(expecting-childcare-costs)" {{ checked("your-children--childcare-costs", "No") }} />
+                            <input id="no" type="radio" name="ma--born-after-april" value="No, redirect()" {{ checked("ma--born-after-april", "No") }} />
                             <label for="no">No</label>
                         </div>
-                        <!-- <div class="multiple-choice">
-                            <input id="maybe" type="radio" name="your-children--childcare-costs" value="Not yet but maybe in the future" {{ checked("your-children--childcare-costs", "Not yet but looking at childcare options") }} />
-                            <label for="maybe">Not yet but looking at childcare options</label>
-                        </div> -->
-
                     </div>
                 </fieldset>
 
