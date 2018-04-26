@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% set pageHeading = "Is your partners income less than £46,350 a year?" %}
+{% set pageSection = "Check your eligibility" %}
+
+{% block page_title %}
+    {{ macroPageTitle.pageTitle(pageHeading, pageSection) }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    {% include "includes/phase_banner_beta.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+            {% include "includes/back-new.html" %}
+            {{ macroPageHeader.pageHeader(pageHeading) }}
+
+            <p>This is before any tax is deducted.</p>
+
+            <form method="post" class="form">
+                <fieldset class="inline">
+                    <legend class="visuallyhidden">{{ pageHeading }}</legend>
+
+                    <div class="form-group">
+                        <div class="multiple-choice">
+                            <input id="yes" type="radio" name="ma--born-after-april" value="Yes, redirect(residency)" {{ checked("ma--born-after-april", "Yes") }} />
+                            <label for="yes">Yes</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="no" type="radio" name="ma--born-after-april" value="No, redirect()" {{ checked("ma--born-after-april", "No") }} />
+                            <label for="no">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                {{ macroButton.button() }}
+            </form>
+
+
+        </div>
+    </div>
+</main>
+{% endblock %}
