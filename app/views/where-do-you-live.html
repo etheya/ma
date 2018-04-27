@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Where do you live?" %}
+{% set pageSection = "" %}
+
+{% block page_title %}
+    {{ macroPageTitle.pageTitle(pageHeading, pageSection) }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    {% include "includes/phase_banner_beta.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+            {% include "includes/back-new.html" %}
+            {{ macroPageHeader.pageHeader(pageHeading) }}
+
+            <form method="post" class="form">
+
+                <fieldset >
+                    <legend class="visuallyhidden">Where do you live?</legend>
+                    <div class="form-group">
+                        {{ macroRadio.radio(
+                            data = data,
+                            id = "1",
+                            label = "England",
+                            name = "about-you--country"
+
+                        ) }}
+
+                        {{ macroRadio.radio(
+                            data = data,
+                            id = "2",
+                            label = "Scotland",
+                            name = "about-you--country"
+                        ) }}
+
+                        {{ macroRadio.radio(
+                            data = data,
+                            id = "3",
+                            label = "Wales",
+                            name = "about-you--country"
+                        ) }}
+
+                        {{ macroRadio.radio(
+                            data = data,
+                            id = "4",
+                            label = "Northern Ireland",
+                            name = "about-you--country"
+                        ) }}
+
+
+                    </div>
+                </fieldset>
+
+                {{ macroButton.button() }}
+            </form>
+
+
+        </div>
+    </div>
+</main>
+{% endblock %}
