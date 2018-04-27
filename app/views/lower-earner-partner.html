@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% set pageHeading = "Is your income less than £11,850 a year?" %}
+{% set pageHeading = "Is your partner’s income less than £11,850 a year?" %}
 {% set pageSection = "Check your eligibility" %}
 
 {% block page_title %}
@@ -27,14 +27,14 @@
                         <div class="multiple-choice">
 
                             {% if data['ma--scotland-resident'] == "Yes" %}
-                                <input id="yes" type="radio" name="ma--lower-earner" value="Yes, redirect(partners-income-scotland)" {{ checked("ma--lower-earner", "Yes") }} />
+                                <input id="yes" type="radio" name="ma--lower-earner-partner" value="Yes, redirect(income-scotland)" {{ checked("ma--lower-earner-partner", "Yes") }} />
                             {% else %}
-                                <input id="yes" type="radio" name="ma--lower-earner" value="Yes, redirect(partners-income)" {{ checked("ma--lower-earner", "Yes") }} />
+                                <input id="yes" type="radio" name="ma--lower-earner-partner" value="Yes, redirect(income)" {{ checked("ma--lower-earner-partner", "Yes") }} />
                             {% endif %}
                             <label for="yes">Yes</label>
                         </div>
                         <div class="multiple-choice">
-                            <input id="no" type="radio" name="ma--lower-earner" value="No, redirect(lower-earner-partner)" {{ checked("ma--lower-earner", "No") }} />
+                            <input id="no" type="radio" name="ma--lower-earner-partner" value="No, redirect(not-eligible)" {{ checked("ma--lower-earner-partner", "No") }} />
                             <label for="no">No</label>
                         </div>
                     </div>

@@ -23,19 +23,27 @@
             <p>You are not eligible for Marriage Allowance because you are not married or in a legally registered civil partnership.</p>
             <p>You can make a Marriage Allowance claim if your partner has since died, provided the conditions are met. It can be backdated up to 4 years, as with current claims. If this applies to you call HMRC on 0300 200 3300.</p>
 
-            {% elif data['ma--born-april'] == "No" %}
-
-            <!-- April -->
+            {% elif ((data['ma--born-april'] == "No" ) or (data['ma--born-april-partner'] == "No")) %}
             <p>You might benefit more as a couple if you apply for Married Couple’s Allowance.</p>
             <p>You can still apply for Marriage Allowance but you cannot receive Marriage Allowance and Married Couple’s Allowance at the same time.</p>
-
-            {% elif data['ma--lower-earner'] == "No" %}
-            <!-- Income less -->
-            <p>You might not benefit from Marriage Allowance in this tax year because your income is over £11,850. You can still apply for previous years if your income was lower in the past.</p>
 
             {% elif data['ma--partner-income-max'] == "No" %}
             <!--Partners income -->
             <p>You are not eligible for Marriage Allowance in this tax year because your partner’s income is too high or too low. You can still apply for previous years if their income was higher or lower in the past.</p>
+
+            {% elif data['ma--scotland-income-max'] == "No" %}
+
+            <p>You are not eligible for Marriage Allowance in this tax year because your income is too high or too low. You can still apply for previous years if your income was higher or lower in the past.</p>
+
+            {% elif ((data['ma--lower-earner'] == "No") and (data['ma--lower-earner-partner'] == "No")) %}
+            <!-- Income less -->
+            <p>You might not benefit from Marriage Allowance in this tax year because both your income’s are over £11,850. You can still apply for previous years if your income’s were lower in the past.</p>
+
+
+            {% elif ((data['ma--lower-earner'] == "No") or (data['ma--lower-earner-partner'] == "No")) %}
+            <!-- Income less -->
+            <p>You might not benefit from Marriage Allowance in this tax year because your income is over £11,850. You can still apply for previous years if your income was lower in the past.</p>
+
 
             {% elif data['ma--scotland-partner-income-max'] == "No" %}
                 <p>You are not eligible for Marriage Allowance in this tax year because your partner’s income is too high or too low. You can still apply for previous years if their income was higher or lower in the past.</p>

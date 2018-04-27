@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% set pageHeading = "Is your income less than £11,850 a year?" %}
+{% set pageHeading = "Is your income less than £46,350 a year?" %}
 {% set pageSection = "Check your eligibility" %}
 
 {% block page_title %}
@@ -25,16 +25,11 @@
 
                     <div class="form-group">
                         <div class="multiple-choice">
-
-                            {% if data['ma--scotland-resident'] == "Yes" %}
-                                <input id="yes" type="radio" name="ma--lower-earner" value="Yes, redirect(partners-income-scotland)" {{ checked("ma--lower-earner", "Yes") }} />
-                            {% else %}
-                                <input id="yes" type="radio" name="ma--lower-earner" value="Yes, redirect(partners-income)" {{ checked("ma--lower-earner", "Yes") }} />
-                            {% endif %}
+                            <input id="yes" type="radio" name="ma--partner-income-max" value="Yes, redirect(confirm)" {{ checked("ma--partner-income-max", "Yes") }} />
                             <label for="yes">Yes</label>
                         </div>
                         <div class="multiple-choice">
-                            <input id="no" type="radio" name="ma--lower-earner" value="No, redirect(lower-earner-partner)" {{ checked("ma--lower-earner", "No") }} />
+                            <input id="no" type="radio" name="ma--partner-income-max" value="No, redirect(not-eligible)" {{ checked("ma--partner-income-max", "No") }} />
                             <label for="no">No</label>
                         </div>
                     </div>
