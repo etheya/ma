@@ -47,20 +47,20 @@
 
             {% elif ((data['ma--lower-earner'] == "No") and (data['ma--lower-earner-partner'] == "No")) %}
             <!-- Income less -->
-            <p>You would probably not be better off with Marriage Allowance in this tax year because both your incomes are over £11,850. You can still apply for previous years if one of your incomes was lower in the past.</p>
+            <p>You would not be better off with Marriage Allowance in this tax year because both your incomes are over £11,850. You can still apply for previous years if one of your incomes was lower in the past.</p>
 
             {% elif data['ma--your-income-max'] == "No" %}
 
                 {% if data['ma--scotland-resident'] == "Yes" %}
-                    <p>You would probably not be better off with Marriage Allowance in this tax year because your income is over &pound;43,430. You can still apply for previous years if your income was lower in the past.</p>
+                    <p>You would not be better off with Marriage Allowance in this tax year because your income is over &pound;43,430. You can still apply for previous years if your income was lower in the past.</p>
                 {% else %}
-                    <p>You would probably not be better off with Marriage Allowance in this tax year because your income is over &pound;46,350. You can still apply for previous years if your income was lower in the past.</p>
+                    <p>You would not be better off with Marriage Allowance in this tax year because your income is over &pound;46,350. You can still apply for previous years if your income was lower in the past.</p>
                 {% endif %}
 
 
             {% elif ((data['ma--lower-earner'] == "No") or (data['ma--lower-earner-partner'] == "No")) %}
             <!-- Income less -->
-            <p>You would probably not be better off with Marriage Allowance in this tax year because your income is over £11,850. You can still apply for previous years if your income was lower in the past.</p>
+            <p>You would not be better off with Marriage Allowance in this tax year because your income is over £11,850. You can still apply for previous years if your income was lower in the past.</p>
 
 
             {% elif data['ma--scotland-partner-income-max'] == "No" %}
