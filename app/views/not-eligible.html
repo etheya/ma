@@ -1,5 +1,11 @@
 {% extends "layout.html" %}
-{% set pageHeading = "You are not eligible for Marriage Allowance" %}
+
+{% if ((data['ma--born-april'] == "No" ) or (data['ma--born-april-partner'] == "No")) %}
+    {% set pageHeading = "Apply for Married Couple’s Allowance" %}
+{% else %}
+    {% set pageHeading = "You are not eligible for Marriage Allowance" %}
+{% endif %}
+
 {% set pageSection = "Check your eligibility" %}
 
 {% block page_title %}
@@ -24,8 +30,8 @@
             <p>If your partner died after 5 April 2015 you can still claim if they were the lower earner. It can be backdated up to 4 years. The person responsible for managing their tax affairs can <a href="https://www.gov.uk/government/organisations/hm-revenue-customs/contact/income-tax-enquiries-for-individuals-pensioners-and-employees#marriage-allowance" target="_blank">phone the Income Tax helpline</a>.</p>
 
             {% elif ((data['ma--born-april'] == "No" ) or (data['ma--born-april-partner'] == "No")) %}
-            <p>You would probably be better off as a couple if you <a href="https://www.gov.uk/married-couples-allowance" target="_blank">apply for Married Couple’s Allowance</a>.</p>
-            <p>You can still apply for Marriage Allowance, but you cannot get Marriage Allowance and Married Couple’s Allowance at the same time.</p>
+            <p>You will be better off if you <a href="https://www.gov.uk/married-couples-allowance" target="_blank">apply for Married Couple’s Allowance</a>.</p>
+            <p>You can still apply for Marriage Allowance, but you cannot get both at the same time.</p>
 
             {% elif data['ma--partner-income-max'] == "No" %}
             <!--Partners income -->
