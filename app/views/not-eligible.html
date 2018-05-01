@@ -21,11 +21,11 @@
             <!-- Eligibility -->
             {% if data['ma--married-partnership'] == "No"%}
             <p>You are not eligible for Marriage Allowance because you are not married or in a legally registered civil partnership.</p>
-            <p>You can make a Marriage Allowance claim if your partner has since died, provided the conditions are met. It can be backdated up to 4 years, as with current claims. If this applies to you call HMRC on 0300 200 3300.</p>
+            <p>If your partner died after 5 April 2015 you can still claim if they were the lower earner. It can be backdated up to 4 years. The person responsible for managing their tax affairs can <a href="https://www.gov.uk/government/organisations/hm-revenue-customs/contact/income-tax-enquiries-for-individuals-pensioners-and-employees#marriage-allowance" target="_blank">phone the Income Tax helpline</a>.</p>
 
             {% elif ((data['ma--born-april'] == "No" ) or (data['ma--born-april-partner'] == "No")) %}
-            <p>You might benefit more as a couple if you <a href="https://www.gov.uk/married-couples-allowance" target="_blank">apply for Married Couple’s Allowance</a>.</p>
-            <p>You can still apply for Marriage Allowance but you cannot receive Marriage Allowance and Married Couple’s Allowance at the same time.</p>
+            <p>You would probably be better off as a couple if you <a href="https://www.gov.uk/married-couples-allowance" target="_blank">apply for Married Couple’s Allowance</a>.</p>
+            <p>You can still apply for Marriage Allowance, but you cannot get Marriage Allowance and Married Couple’s Allowance at the same time.</p>
 
             {% elif data['ma--partner-income-max'] == "No" %}
             <!--Partners income -->
@@ -37,7 +37,7 @@
 
             {% elif ((data['ma--lower-earner'] == "No") and (data['ma--lower-earner-partner'] == "No")) %}
             <!-- Income less -->
-            <p>You might not benefit from Marriage Allowance in this tax year because both your incomes are over £11,850. You can still apply for previous years one of your incomes was lower in the past.</p>
+            <p>You would probably not be better off with Marriage Allowance in this tax year because both your incomes are over £11,850. You can still apply for previous years if one of your incomes was lower in the past.</p>
 
 
             {% elif ((data['ma--lower-earner'] == "No") or (data['ma--lower-earner-partner'] == "No")) %}
