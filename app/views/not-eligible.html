@@ -43,11 +43,11 @@
 
             {% elif data['ma--scotland-income-max'] == "No" %}
 
-            <p>You are not eligible for Marriage Allowance in this tax year because your income is too high. You can still apply for previous years if your income was lower in the past.</p>
+            <p>You are not eligible for Marriage Allowance in this tax year because your income is above &pound;43,430. You can still apply for previous years if your income was lower in the past.</p>
 
             {% elif ((data['ma--lower-earner'] == "No") and (data['ma--lower-earner-partner'] == "No")) %}
             <!-- Income less -->
-            <p>You would not be better off with Marriage Allowance in this tax year because both your incomes are over £11,850. You can still apply for previous years if one of your incomes was lower in the past.</p>
+            <p>You would not be better off with Marriage Allowance in this tax year because both your incomes are over &pound;11,850. You can still apply for previous years if one of your incomes was lower in the past.</p>
 
             {% elif data['ma--your-income-max'] == "No" %}
 
@@ -60,11 +60,11 @@
 
             {% elif ((data['ma--lower-earner'] == "No") or (data['ma--lower-earner-partner'] == "No")) %}
             <!-- Income less -->
-            <p>You would not be better off with Marriage Allowance in this tax year because your income is over £11,850. You can still apply for previous years if your income was lower in the past.</p>
+            <p>You would not be better off with Marriage Allowance in this tax year because your income is over &pound;11,850. You can still apply for previous years if your income was lower in the past.</p>
 
 
             {% elif data['ma--scotland-partner-income-max'] == "No" %}
-                <p>You are not eligible for Marriage Allowance in this tax year because your partner’s income is too high or too low. You can still apply for previous years if their income was higher or lower in the past.</p>
+                <p>You are not eligible for Marriage Allowance in this tax year because your partner’s income is above &pound;43,430. You can still apply for previous years if their income was higher or lower in the past.</p>
 
             {% elif data['ma--partners-lower-income'] == "No" %}
                 <p>You are not eligible for Marriage Allowance in this tax year because your partner’s income is less than &pound;11,851 . You can still apply for previous years if their income was higher in the past.</p>

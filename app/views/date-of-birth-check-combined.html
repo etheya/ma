@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% set pageHeading = "Is your partner’s income less than £46,350 a year?" %}
+{% set pageHeading = "Were you and your partner born after 5 April 1935?" %}
 {% set pageSection = "Check your eligibility" %}
 
 {% block page_title %}
@@ -17,19 +17,17 @@
             {% include "includes/back-new.html" %}
             {{ macroPageHeader.pageHeader(pageHeading) }}
 
-            <p>This is before any tax is deducted.</p>
-
             <form method="post" class="form">
                 <fieldset class="inline">
                     <legend class="visuallyhidden">{{ pageHeading }}</legend>
 
                     <div class="form-group">
                         <div class="multiple-choice">
-                            <input id="yes" type="radio" name="ma--partner-income-max" value="Yes, redirect(partners-lower-income)" {{ checked("ma--partner-income-max", "Yes") }} />
+                            <input id="yes" type="radio" name="ma--born-april" value="Yes" {{ checked("ma--born-april", "Yes") }} />
                             <label for="yes">Yes</label>
                         </div>
                         <div class="multiple-choice">
-                            <input id="no" type="radio" name="ma--partner-income-max" value="No, redirect(not-eligible)" {{ checked("ma--partner-income-max", "No") }} />
+                            <input id="no" type="radio" name="ma--born-april" value="No" {{ checked("ma--born-april", "No") }} />
                             <label for="no">No</label>
                         </div>
                     </div>
