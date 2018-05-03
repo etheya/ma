@@ -1,6 +1,6 @@
 {% macro button (
     next = "",
-    value = "Save and continue"
+    value = "Continue"
 ) %}
     {% if next %}<input type="hidden" name="next-page" value="{{ next }}">{% endif %}
     <button type="submit" class="button">{{ value }}</button>

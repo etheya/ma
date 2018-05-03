@@ -71,10 +71,22 @@
             {% else %}
 
 
-
-
-
             {% endif %}
+
+
+
+
+            <!-- Check to show the button or not -->
+            {% if ((data['ma--born-april'] == "No" ) or (data['ma--born-april-partner'] == "No") or (data['ma--married-partnership'] == "No")) %}
+
+            {% else %}
+                <form method="post" class="form">
+                    {{ macroButton.button( next = "confirm-previous" ) }}
+                </form>
+            {% endif %}
+            <!-- // -->
+
+
         </div>
     </div>
 </main>

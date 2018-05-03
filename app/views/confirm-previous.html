@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Do you want to apply for Marriage Allowance for previous years?" %}
+
+
+{% set pageSection = "Check your eligibility" %}
+
+{% block page_title %}
+    {{ macroPageTitle.pageTitle(pageHeading, pageSection) }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    {% include "includes/phase_banner_beta.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+            {% include "includes/back-new.html" %}
+            {{ macroPageHeader.pageHeader(pageHeading) }}
+
+            {% if data['ma--lower-earner-partner'] == "Yes" %}
+                <p>Your partner will need to make the application for Marriage Allowance as they are the lower earner.</p>
+            {% endif %}
+
+            <p>To help protect your data, we will ask you some security questions.</p>
+
+            <form method="post" class="form">
+                <fieldset class="inline">
+                    <legend class="visuallyhidden">{{ pageHeading }}</legend>
+
+                    <div class="form-group">
+                        <div class="multiple-choice">
+                            <input id="yes" type="radio" name="ma--confirm-and-apply" value="Yes, redirect(https://www.tax.service.gov.uk/personal-details-validation/personal-details?completionUrl=%2Fmdtp%2Fpersonal-details-validation-complete%2Fc462774d-8b69-43f3-a9ba-e38ea49e7ea5)" {{ checked("ma--confirm-and-apply", "Yes") }} />
+                            <label for="yes">Yes</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="no" type="radio" name="ma--confirm-and-apply" value="No, redirect(index)" {{ checked("ma--confirm-and-apply", "No") }} />
+                            <label for="no">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                {{ macroButton.button() }}
+            </form>
+
+
+        </div>
+    </div>
+</main>
+{% endblock %}
