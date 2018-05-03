@@ -15,13 +15,21 @@
         <div class="column-two-thirds">
 
             {% include "includes/back-new.html" %}
+            <div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+                <h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">There is a problem</h2>
+                <ul class="error-summary-list">
+                    <li><a href="#example-personal-details">Select yes if you are married or in a civil partnership</a></li>
+                </ul>
+            </div>
+
             {{ macroPageHeader.pageHeader(pageHeading) }}
 
             <form method="post" class="form">
                 <fieldset class="inline">
                     <legend class="visuallyhidden">{{ pageHeading }}</legend>
+                    <span class="error-message">Select yes if you are married or in a civil partnership</span>
 
-                    <div class="form-group">
+                    <div class="form-group form-group-error">
                         <div class="multiple-choice">
                             <input id="yes" type="radio" name="ma--married-partnership" value="Yes, redirect(date-of-birth-check)" {{ checked("ma--married-partnership", "Yes") }} />
                             <label for="yes">Yes</label>

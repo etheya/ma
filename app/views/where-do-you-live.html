@@ -16,13 +16,23 @@
         <div class="column-two-thirds">
 
             {% include "includes/back-new.html" %}
+            <div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+                <h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">There is a problem</h2>
+
+                <ul class="error-summary-list">
+                    <li><a href="#example-personal-details">Select where you live</a></li>
+                </ul>
+            </div>
+
             {{ macroPageHeader.pageHeader(pageHeading) }}
 
             <form method="post" class="form">
 
                 <fieldset >
                     <legend class="visuallyhidden">Where do you live?</legend>
-                    <div class="form-group">
+                    <span class="error-message">Select where you live</span>
+
+                    <div class="form-group form-group-error">
                         {{ macroRadio.radio(
                             data = data,
                             id = "1",

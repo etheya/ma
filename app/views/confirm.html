@@ -15,6 +15,16 @@
         <div class="column-two-thirds">
 
             {% include "includes/back-new.html" %}
+
+
+            <div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+                <h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">There is a problem</h2>
+
+                <ul class="error-summary-list">
+                    <li><a href="#example-personal-details">Select yes if you want to apply for Marriage Allowance</a></li>
+                </ul>
+            </div>
+
             {{ macroPageHeader.pageHeader(pageHeading) }}
 
             {% if data['ma--lower-earner-partner'] == "Yes" %}
@@ -26,8 +36,9 @@
             <form method="post" class="form">
                 <fieldset class="inline">
                     <legend class="visuallyhidden">{{ pageHeading }}</legend>
+                    <span class="error-message">Select yes if you want to apply for Marriage Allowance</span>
 
-                    <div class="form-group">
+                    <div class="form-group form-group-error">
                         <div class="multiple-choice">
                             <input id="yes" type="radio" name="ma--confirm-and-apply" value="Yes, redirect(https://www.tax.service.gov.uk/personal-details-validation/personal-details?completionUrl=%2Fmdtp%2Fpersonal-details-validation-complete%2Fc462774d-8b69-43f3-a9ba-e38ea49e7ea5)" {{ checked("ma--confirm-and-apply", "Yes") }} />
                             <label for="yes">Yes</label>

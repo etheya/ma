@@ -15,6 +15,14 @@
         <div class="column-two-thirds">
 
             {% include "includes/back-new.html" %}
+            <div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+                <h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">There is a problem</h2>
+
+                <ul class="error-summary-list">
+                    <li><a href="#example-personal-details">Select yes if your partner’s income is more than £11,851 a year</a></li>
+                </ul>
+            </div>
+
             {{ macroPageHeader.pageHeader(pageHeading) }}
 
             <p>This is before any tax is deducted.</p>
@@ -22,8 +30,9 @@
             <form method="post" class="form">
                 <fieldset class="inline">
                     <legend class="visuallyhidden">{{ pageHeading }}</legend>
+                    <span class="error-message">Select yes if your partner’s income is more than £11,851 a year</span>
 
-                    <div class="form-group">
+                    <div class="form-group form-group-error">
                         <div class="multiple-choice">
                             <input id="yes" type="radio" name="ma--partners-lower-income" value="Yes, redirect(confirm)" {{ checked("ma--partners-lower-income", "Yes") }} />
                             <label for="yes">Yes</label>
