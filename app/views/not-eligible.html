@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
-{% if ((data['ma--born-april'] == "No" ) or (data['ma--born-april-partner'] == "No")) %}
+
+{% if data['ma--married-partnership'] == "No"%}
+    {% set pageHeading = "You are not eligible for Marriage Allowance" %}
+
+{% elif ((data['ma--born-april'] == "No" ) or (data['ma--born-april-partner'] == "No")) %}
     {% set pageHeading = "Apply for Married Couple’s Allowance" %}
 {% else %}
     {% set pageHeading = "You are not eligible for Marriage Allowance in this tax year" %}
