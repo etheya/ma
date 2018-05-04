@@ -1,5 +1,11 @@
 {% extends "layout.html" %}
-{% set pageHeading = "Do you want to apply for Marriage Allowance?" %}
+
+{% if data['ma--lower-earner-partner'] == "Yes" %}
+    {% set pageHeading = "Does your partner want to apply for Marriage Allowance?" %}
+{% else %}
+    {% set pageHeading = "Do you want to apply for Marriage Allowance?" %}
+{% endif %}
+
 {% set pageSection = "Check your eligibility" %}
 
 {% block page_title %}
@@ -18,13 +24,15 @@
             {{ macroPageHeader.pageHeader(pageHeading) }}
 
             {% if data['ma--lower-earner-partner'] == "Yes" %}
-                <p>Your partner will need to make the application for Marriage Allowance as they are the lower earner.</p>
+                <p>To help protect their data, we will ask them some security questions.</p>
+
+            {% else %}
+                <p>To help protect your data, we will ask you some security questions.</p>
             {% endif %}
 
-            <p>To help protect your data, we will ask you some security questions.</p>
 
             <form method="post" class="form">
-                <fieldset class="inline">
+                    <fieldset class="inline">
                     <legend class="visuallyhidden">{{ pageHeading }}</legend>
 
                     <div class="form-group">

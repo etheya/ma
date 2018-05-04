@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Your partner can apply for Marriage Allowance" %}
+{% set pageSection = "Check your eligibility" %}
+
+{% block page_title %}
+    {{ macroPageTitle.pageTitle(pageHeading, pageSection) }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    {% include "includes/phase_banner_beta.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+            {% include "includes/back-new.html" %}
+            {{ macroPageHeader.pageHeader(pageHeading) }}
+
+
+                <p>As your partner is the lower earner they will need to make the application for Marriage Allowance.</p>
+
+                <form method="post" class="form">
+                    {{ macroButton.button( next = "confirm") }}
+                </form>
+
+
+        </div>
+    </div>
+</main>
+{% endblock %}
